@@ -19,7 +19,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from octofit_tracker.views import (
     TeamViewSet, UserProfileViewSet, ActivityViewSet,
-    LeaderboardViewSet, WorkoutViewSet
+    LeaderboardViewSet, WorkoutViewSet, api_root
 )
 
 # Create a router and register viewsets
@@ -40,6 +40,5 @@ else:
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('', api_root, name='api-root'),
 ]
-
-
